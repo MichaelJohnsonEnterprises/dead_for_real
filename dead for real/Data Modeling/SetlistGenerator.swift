@@ -11,8 +11,6 @@ import Foundation
 
 class SetlistGenerator {
     
-    var blob : [topLevel] = []
-
     func generateSetlistData() {
         
         let setlist_API_Key = "_RYJGzYOFgqCITzykUaPqaidvqCFkdl6RNa2"
@@ -33,13 +31,14 @@ class SetlistGenerator {
             guard error == nil else { print(error!.localizedDescription); return }
             guard let data = data else { print("Empty data"); return }
             
-            if let str = String(data: data, encoding: .utf8) {
-            print(str)
+            if String(data: data, encoding: .utf8) != nil {
+                
+//            if let str = String(data: data, encoding: .utf8) {
+//            print(str)
                
                 do {
-                    let show = try JSONDecoder().decode(topLevel.self, from: data)
-                    print(show)
-//                    self.blob.append(show)
+                    let allShowData = try JSONDecoder().decode(Setlists.self, from: data)
+                    print(allShowData)
 
                 } catch let parseError {
                     print(" \n *** \n ", parseError)
