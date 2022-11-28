@@ -1,0 +1,169 @@
+{
+  "setlists": [
+      {
+      "id": "4bf6af3e",
+      "versionId": "7b7ad2b0",
+      "eventDate": "05-07-2015",
+      "lastUpdated": "2018-07-02T00:57:47.000+0000",
+      "artist": {
+        "mbid": "6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6",
+        "tmid": 735200,
+        "name": "Grateful Dead",
+        "sortName": "Grateful Dead",
+        "disambiguation": "",
+        "url": "https://www.setlist.fm/setlists/grateful-dead-bd6ad4a.html"
+      },
+      "venue": {
+        "id": "4bd637ce",
+        "name": "Soldier Field",
+        "city": {
+          "id": "4887398",
+          "name": "Chicago",
+          "state": "Illinois",
+          "stateCode": "IL",
+          "coords": {
+            "lat": 41.850033,
+            "long": -87.6500523
+          },
+          "country": {
+            "code": "US",
+            "name": "United States"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/soldier-field-chicago-il-usa-4bd637ce.html"
+      },
+      "tour": {
+        "name": "Fare Thee Well"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Set 1:",
+            "song": [
+              {
+                "name": "China Cat Sunflower",
+                "info": "Trey Anastasio and Bruce Hornsby on lead vocals) (>"
+              },
+              {
+                "name": "I Know You Rider",
+                "cover": {
+                  "mbid": "9be7f096-97ec-4615-8957-8d40b5dcbc41",
+                  "name": "[traditional]",
+                  "sortName": "[traditional]",
+                  "disambiguation": "Special Purpose Artist",
+                  "url": "https://www.setlist.fm/setlists/traditional-5bd2f7e4.html"
+                },
+                "info": "Trey Anastasio, Phil Lesh,  Bob Weir, Bruce Hornsby on lead vocals"
+              },
+              {
+                "name": "Estimated Prophet",
+                "info": "Bob Weir on lead vocals"
+              },
+              {
+                "name": "Built to Last",
+                "info": "Bruce Hornsby on lead vocals"
+              },
+              {
+                "name": "Samson and Delilah",
+                "cover": {
+                  "mbid": "9be7f096-97ec-4615-8957-8d40b5dcbc41",
+                  "name": "[traditional]",
+                  "sortName": "[traditional]",
+                  "disambiguation": "Special Purpose Artist",
+                  "url": "https://www.setlist.fm/setlists/traditional-5bd2f7e4.html"
+                },
+                "info": "Bob Weir on lead vocals"
+              },
+              {
+                "name": "Mountains of the Moon",
+                "info": "Phil Lesh on lead vocals"
+              },
+              {
+                "name": "Throwing Stones",
+                "info": "Bob Weir on lead vocals, with updated lyrics on today's socio-political climate"
+              }
+            ]
+          },
+          {
+            "name": "Set 2:",
+            "song": [
+              {
+                "name": "Truckin'",
+                "info": "Bob Weir on lead vocals"
+              },
+              {
+                "name": "Cassidy",
+                "cover": {
+                  "mbid": "c8a63580-9e6b-4852-bf93-c09760035e76",
+                  "tmid": 736431,
+                  "name": "Bob Weir",
+                  "sortName": "Weir, Bob",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/bob-weir-bd6add6.html"
+                },
+                "info": "Bob Weir on lead vocals"
+              },
+              {
+                "name": "Althea",
+                "info": "Trey Anastasio on lead vocals"
+              },
+              {
+                "name": "Terrapin Station",
+                "info": "Phil Lesh, Bob Weir share lead vocals) (>"
+              },
+              {
+                "name": "Drums",
+                "info": ">"
+              },
+              {
+                "name": "Space",
+                "info": ">"
+              },
+              {
+                "name": "Unbroken Chain",
+                "info": "Phil Lesh on lead vocals"
+              },
+              {
+                "name": "Days Between",
+                "info": "Bob Weir on lead vocals"
+              },
+              {
+                "name": "Not Fade Away",
+                "cover": {
+                  "mbid": "de9a19b3-531b-4df3-ae90-4763fe282946",
+                  "name": "The Crickets",
+                  "sortName": "Crickets, The",
+                  "disambiguation": "band originally with Buddy Holly",
+                  "url": "https://www.setlist.fm/setlists/the-crickets-73d69e79.html"
+                },
+                "info": "Trey Anastasio, Phil Lesh, Bob Weir, Bruce Hornsby together on lead vocals"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "name": "Set 2:",
+            "song": [
+              {
+                "name": "Touch of Grey",
+                "info": "Trey Anastasio, Bruce Hornsby, Bob Weir share lead vocals"
+              }
+            ]
+          },
+          {
+            "encore": 2,
+            "name": "Set 2:",
+            "song": [
+              {
+                "name": "Attics of My Life",
+                "info": "Trey Anastasio, Phil Lesh, Bob Weir, Bruce Hornsby on lead vocals, with Bobby on acoustic guitar"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "Billed as \"Fare Thee Well: Celebrating 50 Years of Grateful Dead\". Featuring Phil Lesh, Bob Weir, Mickey Hart, Bill Kreutzmann, Trey Anastasio, Bruce Hornsby and Jeff Chimenti. Second set was preceded by another fireworks display. Video montage of past/present band members during \"Attics of My Life\". Entire concert simulcast live in multiple formats and locations.",
+      "url": "https://www.setlist.fm/setlist/grateful-dead/2015/soldier-field-chicago-il-4bf6af3e.html"
+    }
+  ]
+}
