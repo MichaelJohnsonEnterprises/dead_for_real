@@ -11,7 +11,6 @@ import Foundation
 
 class SetlistGenerator {
     
-//    var shows : [Show] = []
     var blob : [topLevel] = []
 
     func generateSetlistData() {
