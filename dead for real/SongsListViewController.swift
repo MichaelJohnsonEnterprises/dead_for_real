@@ -18,13 +18,18 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var ascendingSwitch : UISwitch!
     
     let refreshControl = UIRefreshControl()
-
+     
     let cellReuseIdentifier = "SongCell"
+    
+    var setlistList : MassiveSetlistList = MassiveSetlistList()
     public var songs : [LiveSong] = []
 
     override func viewDidLoad() {
 
-        SetlistGenerator().generateSetlistData()
+        SetlistGenerator().generateSetlistData() { MassiveSetlistList in
+            self.setlistList = MassiveSetlistList
+            self.songsListTableView.reloadData()
+        }
         
         self.title = "Grateful Dead songs"
         
