@@ -22,13 +22,17 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     let cellReuseIdentifier = "SongCell"
     
     var setlistList : MassiveSetlistList = MassiveSetlistList()
-    public var songs : [LiveSong] = []
+    public var songs : [MassiveSetlistList.Show.Sets.Song] = []
+    var songTitles : [String] = []
 
     override func viewDidLoad() {
 
         SetlistGenerator().generateSetlistData() { MassiveSetlistList in
             self.setlistList = MassiveSetlistList
-            self.songsListTableView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.getSongsFromSetlistList(setlistList: self.setlistList)
+            }
         }
         
         self.title = "Grateful Dead songs"
@@ -43,9 +47,32 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // deselect last on row on pop back from push
         if let indexPath = songsListTableView.indexPathForSelectedRow {
             songsListTableView.deselectRow(at: indexPath, animated: false)
         }
+    }
+    
+    func getSongsFromSetlistList(setlistList: MassiveSetlistList) {
+        
+        for show in setlistList.setlist {
+
+            for setDictionary in show.sets {
+
+                for actualSet in setDictionary.value {
+                    
+                    for song in actualSet.song {
+                        songTitles.append(song.name)
+//                        print(song)
+                    }
+                }
+            }
+        }
+        
+//        print(songTitles)
+        print(songTitles.count)
+
+        self.songsListTableView.reloadData()
     }
     
     func refresh(sender:AnyObject) {
@@ -54,12 +81,12 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     
     @IBAction func sortByFrequencyToggled(_ sender: Any) {
         
-        if (self.frequencySwitch.isOn) {
-            self.songs.sort(by:{$0.timesPlayed > $1.timesPlayed})
-        
-        } else {
-            self.songs.sort(by:{$0.name < $1.name})
-        }
+//        if (self.frequencySwitch.isOn) {
+//            self.songs.sort(by:{$0.timesPlayed > $1.timesPlayed})
+//
+//        } else {
+//            self.songs.sort(by:{$0.name < $1.name})
+//        }
         
         self.songsListTableView.reloadData()
     }
@@ -79,7 +106,7 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? SongCell {
             
             cell.textLabel?.text = songs[indexPath.row].name
-            cell.detailTextLabel?.text = String(songs[indexPath.row].timesPlayed)
+//            cell.detailTextLabel?.text = String(songs[indexPath.row].timesPlayed)
             
             return cell
         }

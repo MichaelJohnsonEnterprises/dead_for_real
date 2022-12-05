@@ -20,7 +20,7 @@ class SetlistGenerator {
         let setlistURL = "https://api.setlist.fm/rest/1.0/search/setlists?artistMbid=\(mbid)&p=1"
         
         guard let url = URL(string: "\(setlistURL)") else {
-            print("invalid url")
+            print(" <~~~~~~~~~~~~~~~~~~~~~~> invalid url")
             return
         }
         
@@ -30,8 +30,8 @@ class SetlistGenerator {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: request) { ( data, response, error) in
-            guard error == nil else { print(error!.localizedDescription); return }
-            guard let data = data else { print("Empty data"); return }
+            guard error == nil else { print(" <~~~~~~~~~~~~~~~~~~~~~~~~~> ", error!.localizedDescription); return }
+            guard let data = data else { print(" <~~~~~~~~~~~~~~~~~~~~~~~~~~> Empty data"); return }
             
             if String(data: data, encoding: .utf8) != nil {
  
