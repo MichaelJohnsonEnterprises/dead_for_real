@@ -10,8 +10,13 @@ import Foundation
 // setlistFM API key: _RYJGzYOFgqCITzykUaPqaidvqCFkdl6RNa2
 
 class SetlistGenerator {
+        
+    var setlistList : MassiveSetlistList = MassiveSetlistList()
     
-    func generateSetlistData() {
+    func generateSetlistData() -> MassiveSetlistList {
+        
+        
+//        let songs : [LiveSong] = []
         
         let setlist_API_Key = "_RYJGzYOFgqCITzykUaPqaidvqCFkdl6RNa2"
         let mbid = "6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6"
@@ -19,7 +24,7 @@ class SetlistGenerator {
         
         guard let url = URL(string: "\(setlistURL)") else {
             print("invalid url")
-            return
+            return MassiveSetlistList()
         }
         
         var request = URLRequest(url: url)
@@ -31,20 +36,30 @@ class SetlistGenerator {
             guard error == nil else { print(error!.localizedDescription); return }
             guard let data = data else { print("Empty data"); return }
             
-            if String(data: data, encoding: .utf8) != nil {
+//            if String(data: data, encoding: .utf8) != nil {
                 
-//            if let str = String(data: data, encoding: .utf8) {
-//            print(str)
+            if let str = String(data: data, encoding: .utf8) {
+            print(str)
                
                 do {
-                    let allShowData = try JSONDecoder().decode(Setlists.self, from: data)
-                    print(allShowData)
+                    self.setlistList = try JSONDecoder().decode(MassiveSetlistList.self, from: data)
+//                    return par
+//
+                    print(self.setlistList)
+                    
+                    return self.setlistList
 
                 } catch let parseError {
                     print(" \n *** \n ", parseError)
                 }
             }
-            
         }.resume()
+        
+        
+        
+        return self.setlistList
     }
+ 
 }
+
+

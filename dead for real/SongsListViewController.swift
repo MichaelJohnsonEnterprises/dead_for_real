@@ -20,14 +20,12 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     let refreshControl = UIRefreshControl()
 
     let cellReuseIdentifier = "SongCell"
-    public var songs : [SongOld] = []
+    public var songs : [LiveSong] = []
 
     override func viewDidLoad() {
 
         SetlistGenerator().generateSetlistData()
         
-        self.songs = DataCreator().generateSetListData()
-
         self.title = "Grateful Dead songs"
         
         self.songsListTableView.delegate = self
@@ -35,7 +33,6 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
         self.songsListTableView.register(SongCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         self.frequencySwitch.setOn(false, animated: false)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

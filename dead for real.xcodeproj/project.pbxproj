@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8933DEE7293BF75900C78388 /* LiveSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933DEE6293BF75900C78388 /* LiveSong.swift */; };
 		89383F53292E7316007F9DEF /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89383F52292E7316007F9DEF /* Show.swift */; };
 		89383F56292E73AD007F9DEF /* SetlistGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89383F55292E73AD007F9DEF /* SetlistGenerator.swift */; };
 		8995D7A528AAF194002E4E59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8995D7A428AAF194002E4E59 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8933DEE6293BF75900C78388 /* LiveSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSong.swift; sourceTree = "<group>"; };
 		89383F52292E7316007F9DEF /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		89383F55292E73AD007F9DEF /* SetlistGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetlistGenerator.swift; sourceTree = "<group>"; };
 		8995D7A428AAF194002E4E59 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				8995D7AA28ABCADD002E4E59 /* SongOld.swift */,
 				8995D7AD28ABD885002E4E59 /* Album.swift */,
 				89383F52292E7316007F9DEF /* Show.swift */,
+				8933DEE6293BF75900C78388 /* LiveSong.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				89D3655028AAD90A00C0CAE4 /* AppDelegate.swift in Sources */,
 				89383F53292E7316007F9DEF /* Show.swift in Sources */,
 				89D3656E28AAD98A00C0CAE4 /* Titles.swift in Sources */,
+				8933DEE7293BF75900C78388 /* LiveSong.swift in Sources */,
 				89383F56292E73AD007F9DEF /* SetlistGenerator.swift in Sources */,
 				89D3656C28AAD97700C0CAE4 /* SongsListViewController.swift in Sources */,
 				8995D7A528AAF194002E4E59 /* ViewController.swift in Sources */,
