@@ -69,6 +69,7 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
                             titles.append(song.name)
                             
                         } else {
+                           
                             if let index = songs.firstIndex(where: {$0.name == song.name}) {
                                 var Song = songs[index]
                                 Song.timesPlayed += 1
@@ -82,10 +83,6 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
 
         songs.sort(by:{$0.name < $1.name})
         self.songsListTableView.reloadData()
-    }
-    
-    func refreshSetlistData(sender:AnyObject) {
-
     }
     
     @objc func refresh(sender:AnyObject) {
