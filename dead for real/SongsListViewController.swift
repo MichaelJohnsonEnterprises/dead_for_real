@@ -30,20 +30,18 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
         
 //        self.commonSongsList = DataCreator().generateSetListData()
 
-        SetlistGenerator().generateSetlistData() { MassiveSetlistList in
-            self.setlistList = MassiveSetlistList
-            
-            DispatchQueue.main.async {
-                self.getSongsFromSetlistList(setlistList: self.setlistList)
-            }
-        }
+        self.refresh(sender:self)
         
         self.title = "Grateful Dead songs"
         
         self.songsListTableView.delegate = self
         self.songsListTableView.dataSource = self
         self.songsListTableView.register(SongCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        self.songsListTableView.refreshControl = refreshControl
         
+//        self.refreshControl.addTarget(self, action: #selector(refreshSetlistData(_:)), for: .valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+
         self.frequencySwitch.setOn(false, animated: false)
     }
     
@@ -86,9 +84,21 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
         self.songsListTableView.reloadData()
     }
     
-//    func refresh(sender:AnyObject) {
-//
-//    }
+    func refreshSetlistData(sender:AnyObject) {
+
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        
+        SetlistGenerator().generateSetlistData() { MassiveSetlistList in
+            self.setlistList = MassiveSetlistList
+            
+            DispatchQueue.main.async {
+                self.getSongsFromSetlistList(setlistList: self.setlistList)
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
     
     @IBAction func sortByFrequencyToggled(_ sender: Any) {
         

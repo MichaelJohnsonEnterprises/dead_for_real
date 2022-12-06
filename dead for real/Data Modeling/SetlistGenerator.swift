@@ -7,8 +7,6 @@
 
 import Foundation
 
-// setlistFM API key: _RYJGzYOFgqCITzykUaPqaidvqCFkdl6RNa2
-
 class SetlistGenerator {
         
     var setlistList : MassiveSetlistList = MassiveSetlistList()
@@ -19,10 +17,7 @@ class SetlistGenerator {
         let mbid = "6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6"
         let setlistURL = "https://api.setlist.fm/rest/1.0/search/setlists?artistMbid=\(mbid)&p=20"
         
-        guard let url = URL(string: "\(setlistURL)") else {
-            print(" <~~~~~~> invalid url")
-            return
-        }
+        guard let url = URL(string: "\(setlistURL)") else { print(" <~~~~~~> invalid url"); return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -36,7 +31,7 @@ class SetlistGenerator {
             
 //            if String(data: data, encoding: .utf8) != nil {
             if let str = String(data: data, encoding: .utf8) {
-                            print(str)
+                print(str)
                         
                 do {
                     self.setlistList = try JSONDecoder().decode(MassiveSetlistList.self, from: data)
