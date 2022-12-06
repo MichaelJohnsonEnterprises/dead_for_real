@@ -22,10 +22,12 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     let cellReuseIdentifier = "SongCell"
     
     var setlistList : MassiveSetlistList = MassiveSetlistList()
-    public var songs : [MassiveSetlistList.Show.Sets.Song] = []
-    var songTitles : [String] = []
+    var songs : [LiveSong] = []
+
 
     override func viewDidLoad() {
+        
+//        self.commonSongsList = DataCreator().generateSetListData()
 
         SetlistGenerator().generateSetlistData() { MassiveSetlistList in
             self.setlistList = MassiveSetlistList
@@ -62,15 +64,14 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
                 for actualSet in setDictionary.value {
                     
                     for song in actualSet.song {
-                        songTitles.append(song.name)
-//                        print(song)
+                        
+                        songs.append(LiveSong(name: song.name, year: nil, timesPlayed: 1, favorite: false, details: nil))
+                        songs.sort(by:{$0.name < $1.name})
+
                     }
                 }
             }
         }
-        
-//        print(songTitles)
-        print(songTitles.count)
 
         self.songsListTableView.reloadData()
     }
@@ -81,12 +82,12 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     
     @IBAction func sortByFrequencyToggled(_ sender: Any) {
         
-//        if (self.frequencySwitch.isOn) {
-//            self.songs.sort(by:{$0.timesPlayed > $1.timesPlayed})
-//
-//        } else {
-//            self.songs.sort(by:{$0.name < $1.name})
-//        }
+        if (self.frequencySwitch.isOn) {
+            self.songs.sort(by:{$0.timesPlayed > $1.timesPlayed})
+
+        } else {
+            self.songs.sort(by:{$0.name < $1.name})
+        }
         
         self.songsListTableView.reloadData()
     }
@@ -106,7 +107,7 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? SongCell {
             
             cell.textLabel?.text = songs[indexPath.row].name
-//            cell.detailTextLabel?.text = String(songs[indexPath.row].timesPlayed)
+            cell.detailTextLabel?.text = String(songs[indexPath.row].timesPlayed)
             
             return cell
         }
