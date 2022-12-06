@@ -23,6 +23,7 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
     
     var setlistList : MassiveSetlistList = MassiveSetlistList()
     var songs : [LiveSong] = []
+    var titles : [String] = []
 
 
     override func viewDidLoad() {
@@ -65,20 +66,29 @@ class SongsListViewController : UIViewController, UITableViewDataSource, UITable
                     
                     for song in actualSet.song {
                         
-                        songs.append(LiveSong(name: song.name, year: nil, timesPlayed: 1, favorite: false, details: nil))
-                        songs.sort(by:{$0.name < $1.name})
-
+                        if (!titles.contains(song.name)) {
+                            songs.append(LiveSong(name: song.name, year: nil, timesPlayed: 1, favorite: false, details: nil))
+                            titles.append(song.name)
+                            
+                        } else {
+                            if let index = songs.firstIndex(where: {$0.name == song.name}) {
+                                var Song = songs[index]
+                                Song.timesPlayed += 1
+                                songs[index] = Song
+                            }
+                        }
                     }
                 }
             }
         }
 
+        songs.sort(by:{$0.name < $1.name})
         self.songsListTableView.reloadData()
     }
     
-    func refresh(sender:AnyObject) {
-        
-    }
+//    func refresh(sender:AnyObject) {
+//
+//    }
     
     @IBAction func sortByFrequencyToggled(_ sender: Any) {
         

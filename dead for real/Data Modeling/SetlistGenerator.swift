@@ -17,10 +17,10 @@ class SetlistGenerator {
         
         let setlist_API_Key = "_RYJGzYOFgqCITzykUaPqaidvqCFkdl6RNa2"
         let mbid = "6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6"
-        let setlistURL = "https://api.setlist.fm/rest/1.0/search/setlists?artistMbid=\(mbid)&p=1"
+        let setlistURL = "https://api.setlist.fm/rest/1.0/search/setlists?artistMbid=\(mbid)&p=20"
         
         guard let url = URL(string: "\(setlistURL)") else {
-            print(" <~~~~~~~~~~~~~~~~~~~~~~> invalid url")
+            print(" <~~~~~~> invalid url")
             return
         }
         
@@ -30,11 +30,14 @@ class SetlistGenerator {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: request) { ( data, response, error) in
-            guard error == nil else { print(" <~~~~~~~~~~~~~~~~~~~~~~~~~> ", error!.localizedDescription); return }
-            guard let data = data else { print(" <~~~~~~~~~~~~~~~~~~~~~~~~~~> Empty data"); return }
+            guard error == nil else { print(" <~~~~~~~> ", error!.localizedDescription); return }
+            guard let data = data else { print(" <~~~~~~~> Empty data"); return }
             
-            if String(data: data, encoding: .utf8) != nil {
- 
+            
+//            if String(data: data, encoding: .utf8) != nil {
+            if let str = String(data: data, encoding: .utf8) {
+                            print(str)
+                        
                 do {
                     self.setlistList = try JSONDecoder().decode(MassiveSetlistList.self, from: data)
                     completion(self.setlistList)
